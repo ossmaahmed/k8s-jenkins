@@ -1,4 +1,4 @@
-apiversion: apps/v1
+apiVersion: apps/v1
 kind: Deployment  
 metadata:
   name: my-deployment
@@ -12,8 +12,10 @@ spec:
       labels:
         app: my-app
     spec:
+      imagePullSecrets:
+      - name: docker-registry
       containers:
       - name: my-container
         image: my-image
         ports:
-        - containerPort: 8080
+        - containerPort: 8082
